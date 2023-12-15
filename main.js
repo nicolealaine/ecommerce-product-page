@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+  const images = [
+    "images/image-product-1.jpg",
+    "images/image-product-2.jpg",
+    "images/image-product-3.jpg",
+    "images/image-product-4.jpg",
+  ];
+
   /* Increment and Decrement amount to add to cart */
   const increment = document.querySelector(".plus");
   const decrement = document.querySelector(".minus");
@@ -16,30 +23,80 @@ document.addEventListener("DOMContentLoaded", function (event) {
     numToAddDisplay.innerHTML = count;
   });
 
-  /* Change main photo on thumbnail click */
   const mainPhoto = document.querySelector(".main-photo");
   const thumbnails = document.querySelectorAll(".thumbnail");
+  let activeThumb = 0;
+  const modalMainPhoto = document.querySelector(".modal-main-photo");
+  const modalThumbnails = document.querySelectorAll(".modal-thumbnail");
+  // let activeModalThumb = 0;
+
+  mainPhoto.src = images[activeThumb];
+  modalMainPhoto.src = images[activeThumb];
+
+  function updateActiveThumb(thumbs, e) {
+    thumbs.forEach((e) => {
+      e.classList.remove("active-thumb");
+    });
+    activeThumb = e.dataset.photo;
+    e.classList.add("active-thumb");
+  }
+
+  function updateMainPhoto(main) {
+    main.src = images[activeThumb];
+  }
+
   thumbnails.forEach((element) => {
-    element.addEventListener("click", function () {
-      thumbnails.forEach((e) => {
-        e.classList.remove("active-thumb");
-      });
-      mainPhoto.src = this.dataset.full;
-      this.classList.add("active-thumb");
+    element.addEventListener("click", () => {
+      updateActiveThumb(thumbnails, element);
+      updateMainPhoto(mainPhoto);
+
+      console.log(activeThumb);
     });
   });
 
-  const modalMainPhoto = document.querySelector(".modal-main-photo");
-  const modalThumbnails = document.querySelectorAll(".modal-thumbnail");
   modalThumbnails.forEach((element) => {
-    element.addEventListener("click", function () {
-      modalThumbnails.forEach((e) => {
-        e.classList.remove("active-thumb");
-      });
-      modalMainPhoto.src = this.dataset.full;
-      this.classList.add("active-thumb");
+    element.addEventListener("click", () => {
+      updateActiveThumb(modalThumbnails, element);
+      updateMainPhoto(modalMainPhoto);
+      console.log(activeThumb);
     });
   });
+
+  function incrementPhoto() {
+    console.log(activeThumb);
+    activeThumb++;
+    console.log(activeThumb);
+  }
+  function decrementPhoto() {
+    console.log(activeThumb);
+    activeThumb--;
+    console.log(activeThumb);
+  }
+
+  /* Move modal images right on click */
+  const nextArrow = document.querySelector(".right-modal-arrow");
+  const prevArrow = document.querySelector(".left-modal-arrow");
+
+  prevArrow.addEventListener("click", () => {
+    if (activeThumb > 0) {
+      decrementPhoto();
+      //updateActiveThumb(modalThumbnails);
+      updateMainPhoto(modalMainPhoto);
+    }
+  });
+  nextArrow.addEventListener("click", () => {
+    if (activeThumb < images.length - 1) {
+      incrementPhoto();
+      updateMainPhoto(modalMainPhoto);
+    }
+  });
+
+  /* prevArrow.addEventListener("click", () => {
+    if (activeModalThumb > 0) {
+      activeModalThumb = activeModalThumb - 1;
+      currentModalPhoto.src = images[activeModalThumb];
+    }
+  }); */
 
   /* Modal popup on main photo click */
   mainPhoto.addEventListener("click", () => {
@@ -59,30 +116,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
       modal.style.display = "none";
     }
   };
-
-  /* Move modal images right on click */
-
-  const images = [
-    "images/image-product-1.jpg",
-    "images/image-product-2.jpg",
-    "images/image-product-3.jpg",
-    "images/image-product-4.jpg",
-  ];
-  const nextArrow = document.querySelector(".right-modal-arrow");
-  const prevArrow = document.querySelector(".left-modal-arrow");
-  const currentModalPhoto = document.querySelector(".modal-main-photo");
-  var photo = 1;
-  console.log(images.length);
-  nextArrow.addEventListener("click", () => {
-    if (photo <= images.length) {
-      currentModalPhoto.src = images[photo++];
-    }
-  });
-
-  prevArrow.addEventListener("click", () => {
-    if (photo > 0) {
-      photo = photo - 1;
-      currentModalPhoto.src = images[photo];
-    }
-  });
 });

@@ -60,16 +60,12 @@
     <section class="product-page">
 
       <div class="product-photos">
-        <img class="main-photo" src="images/image-product-1.jpg" alt="main product photo">
+        <img class="main-photo" src="" alt="main product photo">
         <div class="thumbnails">
-          <img class="thumbnail active-thumb" src="images/image-product-1-thumbnail.jpg"
-            data-full="images/image-product-1.jpg" alt="">
-          <img class="thumbnail" src="images/image-product-2-thumbnail.jpg" data-full="images/image-product-2.jpg"
-            alt="">
-          <img class="thumbnail" src="images/image-product-3-thumbnail.jpg" data-full="images/image-product-3.jpg"
-            alt="">
-          <img class="thumbnail" src="images/image-product-4-thumbnail.jpg" data-full="images/image-product-4.jpg"
-            alt="">
+          <img class="thumbnail active-thumb" data-photo="0" src="images/image-product-1-thumbnail.jpg" alt="">
+          <img class="thumbnail" data-photo="1" src="images/image-product-2-thumbnail.jpg" alt="">
+          <img class="thumbnail" data-photo="2" src="images/image-product-3-thumbnail.jpg" alt="">
+          <img class="thumbnail" data-photo="3" src="images/image-product-4-thumbnail.jpg" alt="">
         </div>
       </div>
       <div class="product-info">
@@ -111,22 +107,26 @@
       </div>
       <img class="modal-main-photo " src="images/image-product-1.jpg" alt="main product photo">
       <div class="modal-arrows">
-        <div class="left-modal-arrow">
+        <div class="left-modal-arrow arrow">
           <img src="images/icon-previous.svg" />
         </div>
-        <div class="right-modal-arrow">
+        <div class="right-modal-arrow arrow">
           <img src="images/icon-next.svg" />
         </div>
       </div>
       <div class="modal-thumbnails">
-        <img class="modal-thumbnail active-thumb" src="images/image-product-1-thumbnail.jpg"
-          data-full="images/image-product-1.jpg" alt="">
-        <img class="modal-thumbnail" src="images/image-product-2-thumbnail.jpg" data-full="images/image-product-2.jpg"
-          alt="">
-        <img class="modal-thumbnail" src="images/image-product-3-thumbnail.jpg" data-full="images/image-product-3.jpg"
-          alt="">
-        <img class="modal-thumbnail" src="images/image-product-4-thumbnail.jpg" data-full="images/image-product-4.jpg"
-          alt="">
+        <div class="modal-thumb-container">
+          <img class="modal-thumbnail active-thumb" data-photo="0" src="images/image-product-1-thumbnail.jpg" alt="" />
+        </div>
+        <div class="modal-thumb-container">
+          <img class="modal-thumbnail" data-photo="1" src="images/image-product-2-thumbnail.jpg" alt="" />
+        </div>
+        <div class="modal-thumb-container">
+          <img class="modal-thumbnail" data-photo="2" src="images/image-product-3-thumbnail.jpg" alt="" />
+        </div>
+        <div class="modal-thumb-container">
+          <img class="modal-thumbnail" data-photo="3" src="images/image-product-4-thumbnail.jpg" alt="" />
+        </div>
       </div>
     </div>
   </div>
