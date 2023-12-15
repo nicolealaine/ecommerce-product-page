@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="main.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <main>
+    <nav>
+      <div class="left-center-nav">
+        <div class="left-nav">
+          <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <h1 class="page-title"><a href="">sneakers</a></h1>
+        </div>
+
+        <ul class="center-nav">
+          <li class="center-nav-item"><a href="">Collections</a></li>
+          <li class="center-nav-item"><a href="">Men</a></li>
+          <li class="center-nav-item"><a href="">Women</a></li>
+          <li class="center-nav-item"><a href="">About</a></li>
+          <li class="center-nav-item"><a href="">Contact</a></li>
+        </ul>
+      </div>
+      <div class="right-nav">
+        <div class="minicart">
+          <a href=""><img src="images/icon-cart.svg" alt="cart icon" class="right-nav-item cart"></li></a>
+          <div class="cart-popup">
+            <p>Cart</p>
+            <ul>
+              <li>Your cart is empty.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="avatar"><a href=""><img src="images/image-avatar.png" alt="user avatar" class="right-nav-item"></li>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="product-page">
+
+      <div class="product-photos">
+        <img class="main-photo" src="images/image-product-1.jpg" alt="main product photo">
+        <div class="thumbnails">
+          <img class="thumbnail active-thumb" src="images/image-product-1-thumbnail.jpg"
+            data-full="images/image-product-1.jpg" alt="">
+          <img class="thumbnail" src="images/image-product-2-thumbnail.jpg" data-full="images/image-product-2.jpg"
+            alt="">
+          <img class="thumbnail" src="images/image-product-3-thumbnail.jpg" data-full="images/image-product-3.jpg"
+            alt="">
+          <img class="thumbnail" src="images/image-product-4-thumbnail.jpg" data-full="images/image-product-4.jpg"
+            alt="">
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-details">
+          <h2>Sneaker Company</h2>
+          <h3>Fall Limited Edition Sneakers</h3>
+          <p>These low-profile sneakers are your perfect casual wear companion. Featuring a
+            durable rubber outer sole, they’ll withstand everything the weather can offer.
+          </p>
+        </div>
+        <div class="product-pricing">
+          <p class="current-price">$125.00</p>
+          <p class="discount-amount">50%</p>
+          <p class="msrp">$250.00</p>
+        </div>
+        <div class="cart-actions">
+          <div class="increment">
+            <button class="up-down minus">&minus;</button>
+            <p class="num-to-add"></p>
+            <button class="up-down plus">&plus;</button>
+          </div>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+
+      </div>
+
+    </section>
+    <footer>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Nicole Crayne</a>.
+      </div>
+    </footer>
+  </main>
+  <div class="modal">
+    <div class="modal-content">
+      <div class="modal-close">
+        <p><span class="modalX">X</span></p>
+      </div>
+      <img class="modal-main-photo " src="images/image-product-1.jpg" alt="main product photo">
+      <div class="modal-arrows">
+        <div class="left-modal-arrow">
+          <img src="images/icon-previous.svg" />
+        </div>
+        <div class="right-modal-arrow">
+          <img src="images/icon-next.svg" />
+        </div>
+      </div>
+      <div class="modal-thumbnails">
+        <img class="modal-thumbnail active-thumb" src="images/image-product-1-thumbnail.jpg"
+          data-full="images/image-product-1.jpg" alt="">
+        <img class="modal-thumbnail" src="images/image-product-2-thumbnail.jpg" data-full="images/image-product-2.jpg"
+          alt="">
+        <img class="modal-thumbnail" src="images/image-product-3-thumbnail.jpg" data-full="images/image-product-3.jpg"
+          alt="">
+        <img class="modal-thumbnail" src="images/image-product-4-thumbnail.jpg" data-full="images/image-product-4.jpg"
+          alt="">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
