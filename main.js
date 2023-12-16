@@ -28,14 +28,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let activeThumb = 0;
   const modalMainPhoto = document.querySelector(".modal-main-photo");
   const modalThumbnails = document.querySelectorAll(".modal-thumbnail");
-  // let activeModalThumb = 0;
 
   mainPhoto.src = images[activeThumb];
   modalMainPhoto.src = images[activeThumb];
 
   function updateActiveThumb(thumbs, e) {
-    thumbs.forEach((e) => {
-      e.classList.remove("active-thumb");
+    thumbs.forEach((thumb) => {
+      thumb.classList.remove("active-thumb");
     });
     activeThumb = e.dataset.photo;
     e.classList.add("active-thumb");
@@ -49,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     element.addEventListener("click", () => {
       updateActiveThumb(thumbnails, element);
       updateMainPhoto(mainPhoto);
-
       console.log(activeThumb);
     });
   });
@@ -58,19 +56,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
     element.addEventListener("click", () => {
       updateActiveThumb(modalThumbnails, element);
       updateMainPhoto(modalMainPhoto);
-      console.log(activeThumb);
     });
   });
 
   function incrementPhoto() {
-    console.log(activeThumb);
     activeThumb++;
-    console.log(activeThumb);
   }
   function decrementPhoto() {
-    console.log(activeThumb);
     activeThumb--;
-    console.log(activeThumb);
   }
 
   /* Move modal images right on click */
@@ -80,23 +73,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
   prevArrow.addEventListener("click", () => {
     if (activeThumb > 0) {
       decrementPhoto();
-      //updateActiveThumb(modalThumbnails);
+      newActive = modalThumbnails[activeThumb];
+      updateActiveThumb(modalThumbnails, newActive);
       updateMainPhoto(modalMainPhoto);
     }
   });
   nextArrow.addEventListener("click", () => {
     if (activeThumb < images.length - 1) {
       incrementPhoto();
+      newActive = modalThumbnails[activeThumb];
+      updateActiveThumb(modalThumbnails, newActive);
       updateMainPhoto(modalMainPhoto);
     }
   });
-
-  /* prevArrow.addEventListener("click", () => {
-    if (activeModalThumb > 0) {
-      activeModalThumb = activeModalThumb - 1;
-      currentModalPhoto.src = images[activeModalThumb];
-    }
-  }); */
 
   /* Modal popup on main photo click */
   mainPhoto.addEventListener("click", () => {

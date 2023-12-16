@@ -32,6 +32,10 @@ a {
     cursor: pointer;
 }
 
+button {
+    user-select: none;
+}
+
 
 img {
     object-fit: contain;
@@ -50,6 +54,11 @@ nav {
 
 .page-title {
     font-size: 2rem;
+}
+
+.page-title a {
+    color: var(--myBlack);
+    text-decoration: none;
 }
 
 .left-nav,
@@ -346,16 +355,12 @@ nav {
         border-bottom: 5px solid transparent;
     }
 
-    .center-nav-item a,
-    .page-title a {
+    .center-nav-item a {
         color: var(--myDarkGrayishBlue);
         text-decoration: none;
     }
 
-    .page-title a {
-        color: var(--myBlack);
-        text-decoration: none;
-    }
+
 
     .center-nav-item:hover {
         padding-top: 0;
@@ -462,6 +467,7 @@ nav {
     .left-modal-arrow img,
     .right-modal-arrow img {
         width: 30%;
+        user-select: none;
     }
 
     .left-modal-arrow,
@@ -490,6 +496,7 @@ nav {
         font-weight: 700;
         text-align: end;
         cursor: pointer;
+        user-select: none;
     }
 
     .active-thumb {
