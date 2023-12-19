@@ -8,13 +8,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const cartContains = document.querySelector(".cart-contains");
   const cartIcon = document.querySelector(".cart");
   const cartPopup = document.querySelector(".cart-popup");
+  var windowWidth = document.documentElement.clientWidth || window.innerWidth;
+
   var count = 0;
 
   cartIcon.addEventListener("click", () => {
-    if (cartPopup.classList.contains("invisible")) {
-      cartPopup.classList.remove("invisible");
-    } else {
-      cartPopup.classList.add("invisible");
+    if (windowWidth >= 1050) {
+      if (cartPopup.classList.contains("invisible")) {
+        cartPopup.classList.remove("invisible");
+      } else {
+        cartPopup.classList.add("invisible");
+      }
     }
   });
 
@@ -34,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     cartContains.style.display = "grid";
     numToAddDisplay.innerHTML = 0;
     populateCart(sneaks);
+    populateMiniCart();
   }
 
   function deleteItemClickHandler() {
@@ -41,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     cartEmpty.style.display = "inline-block";
     cartContains.style.display = "none";
     count = 0;
+    populateMiniCart();
   }
 
   function populateCart(item) {
@@ -52,6 +58,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
     eachPrice.innerHTML = item.basePrice;
     disItemQty.innerHTML = item.qty;
     calcPrice.innerHTML = item.totPrice();
+  }
+
+  function populateMiniCart() {
+    const miniCartContents = document.querySelector(".minicart-contents");
+    const miniCartNum = document.querySelector(".minicart-num");
+    if (count > 0) {
+      miniCartNum.innerHTML = count;
+      miniCartContents.style.visibility = "visible";
+    } else {
+      miniCartContents.style.visibility = "hidden";
+    }
   }
 
   /* Increment and Decrement amount to add to cart */
@@ -74,4 +91,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
   /* Remove from cart event listener */
   const deleteItem = document.querySelector(".delete-cart-item");
   deleteItem.addEventListener("click", deleteItemClickHandler);
+
+  const hamburger = document.querySelector(".hamburger");
+  const mobileNav = document.querySelector(".mobile-nav");
+  const closeNav = document.querySelector(".close-mobile-nav");
+  hamburger.addEventListener("click", () => {
+    mobileNav.style.transform = "translateX(0)";
+  });
+  closeNav.addEventListener("click", () => {
+    mobileNav.style.transform = "translateX(-100%)";
+  });
 });

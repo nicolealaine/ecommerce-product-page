@@ -49,11 +49,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
     activeThumb--;
   }
 
-  /* Move modal images right on click */
-  const nextArrow = document.querySelector(".right-modal-arrow");
-  const prevArrow = document.querySelector(".left-modal-arrow");
+  /* Move images on arrow click */
+  const nextModalArrow = document.querySelector(".right-modal-arrow");
+  const prevModalArrow = document.querySelector(".left-modal-arrow");
+  const nextArrow = document.querySelector(".right-arrow");
+  const prevArrow = document.querySelector(".left-arrow");
 
   prevArrow.addEventListener("click", () => {
+    if (activeThumb > 0) {
+      decrementPhoto();
+      newActive = thumbnails[activeThumb];
+      updateActiveThumb(thumbnails, newActive);
+      updateMainPhoto(mainPhoto);
+    }
+  });
+  nextArrow.addEventListener("click", () => {
+    if (activeThumb < images.length - 1) {
+      incrementPhoto();
+      newActive = thumbnails[activeThumb];
+      updateActiveThumb(thumbnails, newActive);
+      updateMainPhoto(mainPhoto);
+    }
+  });
+
+  prevModalArrow.addEventListener("click", () => {
     if (activeThumb > 0) {
       decrementPhoto();
       newActive = modalThumbnails[activeThumb];
@@ -61,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       updateMainPhoto(modalMainPhoto);
     }
   });
-  nextArrow.addEventListener("click", () => {
+  nextModalArrow.addEventListener("click", () => {
     if (activeThumb < images.length - 1) {
       incrementPhoto();
       newActive = modalThumbnails[activeThumb];

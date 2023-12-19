@@ -35,18 +35,24 @@
           <h1 class="page-title"><a href="">sneakers</a></h1>
         </div>
 
-        <ul class="center-nav">
-          <li class="center-nav-item"><a href="">Collections</a></li>
-          <li class="center-nav-item"><a href="">Men</a></li>
-          <li class="center-nav-item"><a href="">Women</a></li>
-          <li class="center-nav-item"><a href="">About</a></li>
-          <li class="center-nav-item"><a href="">Contact</a></li>
-        </ul>
+        <div class="mobile-nav">
+          <div class="close-mobile-nav"><img src="images/icon-close.svg" /></div>
+          <ul class="center-nav">
+            <li class="center-nav-item"><a href="">Collections</a></li>
+            <li class="center-nav-item"><a href="">Men</a></li>
+            <li class="center-nav-item"><a href="">Women</a></li>
+            <li class="center-nav-item"><a href="">About</a></li>
+            <li class="center-nav-item"><a href="">Contact</a></li>
+          </ul>
+        </div>
       </div>
       <div class="right-nav">
         <div class="minicart">
+          <div class="minicart-contents">
+            <p class="minicart-num"></p>
+          </div>
           <img src="images/icon-cart.svg" alt="cart icon" class="right-nav-item cart"></li>
-          <div class="cart-popup ">
+          <div class="cart-popup">
             <p class="cart-header">Cart</p>
             <div class="cart-contents">
               <p class="cart-empty">Your cart is empty.</p>
@@ -78,6 +84,14 @@
 
       <div class="product-photos">
         <img class="main-photo" src="" alt="main product photo">
+        <div class="arrows-mobile">
+          <div class="left-arrow arrow">
+            <img src="images/icon-previous.svg" />
+          </div>
+          <div class="right-arrow arrow">
+            <img src="images/icon-next.svg" />
+          </div>
+        </div>
         <div class="thumbnails">
           <img class="thumbnail active-thumb" data-photo="0" src="images/image-product-1-thumbnail.jpg" alt="">
           <img class="thumbnail" data-photo="1" src="images/image-product-2-thumbnail.jpg" alt="">
@@ -100,9 +114,9 @@
         </div>
         <div class="cart-actions">
           <div class="increment">
-            <button class="up-down minus">&minus;</button>
+            <button class="up-down minus"><img src="images/icon-minus.svg" /></button>
             <p class="num-to-add"></p>
-            <button class="up-down plus">&plus;</button>
+            <button class="up-down plus"><img src="images/icon-plus.svg" /></button>
           </div>
           <button class="add-to-cart orange-button">
             <img class="cart-icon-add" src="images/icon-cart.svg" />
