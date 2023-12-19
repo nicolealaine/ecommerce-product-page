@@ -1,16 +1,60 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-  const images = [
-    "images/image-product-1.jpg",
-    "images/image-product-2.jpg",
-    "images/image-product-3.jpg",
-    "images/image-product-4.jpg",
-  ];
-
-  /* Increment and Decrement amount to add to cart */
   const increment = document.querySelector(".plus");
   const decrement = document.querySelector(".minus");
   const numToAddDisplay = document.querySelector(".num-to-add");
+  const itemName = document.querySelector(".product-name").innerHTML;
+  const itemPrice = document.querySelector(".current-price").innerHTML;
+  const cartEmpty = document.querySelector(".cart-empty");
+  const cartContains = document.querySelector(".cart-contains");
+  const cartIcon = document.querySelector(".cart");
+  const cartPopup = document.querySelector(".cart-popup");
   var count = 0;
+
+  cartIcon.addEventListener("click", () => {
+    if (cartPopup.classList.contains("invisible")) {
+      cartPopup.classList.remove("invisible");
+    } else {
+      cartPopup.classList.add("invisible");
+    }
+  });
+
+  class CartItem {
+    constructor(name, qty, basePrice) {
+      this.name = name;
+      this.qty = qty;
+      this.basePrice = basePrice;
+    }
+    totPrice() {
+      return this.qty * this.basePrice;
+    }
+  }
+  function addItemClickHandler() {
+    let sneaks = new CartItem(itemName, count, itemPrice);
+    cartEmpty.style.display = "none";
+    cartContains.style.display = "grid";
+    numToAddDisplay.innerHTML = 0;
+    populateCart(sneaks);
+  }
+
+  function deleteItemClickHandler() {
+    let sneaks = null;
+    cartEmpty.style.display = "inline-block";
+    cartContains.style.display = "none";
+    count = 0;
+  }
+
+  function populateCart(item) {
+    const disItemName = document.querySelector(".display-item-name");
+    const eachPrice = document.querySelector(".each-price");
+    const calcPrice = document.querySelector(".calculated-price");
+    const disItemQty = document.querySelector(".display-item-qty");
+    disItemName.innerText = item.name;
+    eachPrice.innerHTML = item.basePrice;
+    disItemQty.innerHTML = item.qty;
+    calcPrice.innerHTML = item.totPrice();
+  }
+
+  /* Increment and Decrement amount to add to cart */
   numToAddDisplay.innerHTML = count;
   increment.addEventListener("click", function () {
     count++;
@@ -23,86 +67,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     numToAddDisplay.innerHTML = count;
   });
 
-  const mainPhoto = document.querySelector(".main-photo");
-  const thumbnails = document.querySelectorAll(".thumbnail");
-  let activeThumb = 0;
-  const modalMainPhoto = document.querySelector(".modal-main-photo");
-  const modalThumbnails = document.querySelectorAll(".modal-thumbnail");
+  /* Add to cart event listener */
+  const addToCart = document.querySelector(".add-to-cart");
+  addToCart.addEventListener("click", addItemClickHandler);
 
-  mainPhoto.src = images[activeThumb];
-  modalMainPhoto.src = images[activeThumb];
-
-  function updateActiveThumb(thumbs, e) {
-    thumbs.forEach((thumb) => {
-      thumb.classList.remove("active-thumb");
-    });
-    activeThumb = e.dataset.photo;
-    e.classList.add("active-thumb");
-  }
-
-  function updateMainPhoto(main) {
-    main.src = images[activeThumb];
-  }
-
-  thumbnails.forEach((element) => {
-    element.addEventListener("click", () => {
-      updateActiveThumb(thumbnails, element);
-      updateMainPhoto(mainPhoto);
-      console.log(activeThumb);
-    });
-  });
-
-  modalThumbnails.forEach((element) => {
-    element.addEventListener("click", () => {
-      updateActiveThumb(modalThumbnails, element);
-      updateMainPhoto(modalMainPhoto);
-    });
-  });
-
-  function incrementPhoto() {
-    activeThumb++;
-  }
-  function decrementPhoto() {
-    activeThumb--;
-  }
-
-  /* Move modal images right on click */
-  const nextArrow = document.querySelector(".right-modal-arrow");
-  const prevArrow = document.querySelector(".left-modal-arrow");
-
-  prevArrow.addEventListener("click", () => {
-    if (activeThumb > 0) {
-      decrementPhoto();
-      newActive = modalThumbnails[activeThumb];
-      updateActiveThumb(modalThumbnails, newActive);
-      updateMainPhoto(modalMainPhoto);
-    }
-  });
-  nextArrow.addEventListener("click", () => {
-    if (activeThumb < images.length - 1) {
-      incrementPhoto();
-      newActive = modalThumbnails[activeThumb];
-      updateActiveThumb(modalThumbnails, newActive);
-      updateMainPhoto(modalMainPhoto);
-    }
-  });
-
-  /* Modal popup on main photo click */
-  mainPhoto.addEventListener("click", () => {
-    if (screen.width > 1050) {
-      modal.style.display = "block";
-    }
-  });
-
-  /* Close modal on X click */
-  const modal = document.querySelector(".modal");
-  const modalX = document.querySelector(".modalX");
-  modalX.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
+  /* Remove from cart event listener */
+  const deleteItem = document.querySelector(".delete-cart-item");
+  deleteItem.addEventListener("click", deleteItemClickHandler);
 });
