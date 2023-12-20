@@ -33,12 +33,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   function addItemClickHandler() {
-    let sneaks = new CartItem(itemName, count, itemPrice);
-    cartEmpty.style.display = "none";
-    cartContains.style.display = "grid";
-    numToAddDisplay.innerHTML = 0;
-    populateCart(sneaks);
-    populateMiniCart();
+    if (count > 0) {
+      let sneaks = new CartItem(itemName, count, itemPrice);
+      cartEmpty.style.display = "none";
+      cartContains.style.display = "grid";
+      numToAddDisplay.innerHTML = 0;
+      populateCart(sneaks);
+      populateMiniCart();
+      count = 0;
+    }
   }
 
   function deleteItemClickHandler() {

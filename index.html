@@ -4,9 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/my_favicon.png">
   <link rel="stylesheet" href="styles.css" />
   <script src="main.js"></script>
   <script src="modal.js"></script>
@@ -14,9 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
-  <title>Frontend Mentor | E-commerce product page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <title>Nicole Crayne | E-commerce product page</title>
   <style>
 
   </style>
@@ -36,7 +32,7 @@
         </div>
 
         <div class="mobile-nav">
-          <div class="close-mobile-nav"><img src="images/icon-close.svg" /></div>
+          <div class="close-mobile-nav"><img src="images/icon-close.svg" alt="close mobile navigation" /></div>
           <ul class="center-nav">
             <li class="center-nav-item"><a href="">Collections</a></li>
             <li class="center-nav-item"><a href="">Men</a></li>
@@ -57,7 +53,7 @@
             <div class="cart-contents">
               <p class="cart-empty">Your cart is empty.</p>
               <div class="cart-contains">
-                <img class="minicart-thumb" src="images/image-product-1-thumbnail.jpg" />
+                <img class="minicart-thumb" src="images/image-product-1-thumbnail.jpg" alt="image of product in cart" />
                 <p class="display-item-name"></p>
                 <div class="display-item-price-details">
                   <p class="display-item-each-price">$<span class="each-price"></span> x
@@ -66,7 +62,7 @@
                     </span>
                   </p>
                 </div>
-                <img class="delete-cart-item" src="images/icon-delete.svg" />
+                <img class="delete-cart-item" src="images/icon-delete.svg" alt="remove from cart" />
                 <button class="to-checkout orange-button">Checkout</button>
 
               </div>
@@ -86,17 +82,18 @@
         <img class="main-photo" src="" alt="main product photo">
         <div class="arrows-mobile">
           <div class="left-arrow arrow">
-            <img src="images/icon-previous.svg" />
+            <img src="images/icon-previous.svg" alt="previous image" />
           </div>
           <div class="right-arrow arrow">
-            <img src="images/icon-next.svg" />
+            <img src="images/icon-next.svg" alt="next image" />
           </div>
         </div>
         <div class="thumbnails">
-          <img class="thumbnail active-thumb" data-photo="0" src="images/image-product-1-thumbnail.jpg" alt="">
-          <img class="thumbnail" data-photo="1" src="images/image-product-2-thumbnail.jpg" alt="">
-          <img class="thumbnail" data-photo="2" src="images/image-product-3-thumbnail.jpg" alt="">
-          <img class="thumbnail" data-photo="3" src="images/image-product-4-thumbnail.jpg" alt="">
+          <img class="thumbnail active-thumb" data-photo="0" src="images/image-product-1-thumbnail.jpg"
+            alt="sneakers front view">
+          <img class="thumbnail" data-photo="1" src="images/image-product-2-thumbnail.jpg" alt="sneakers side view">
+          <img class="thumbnail" data-photo="2" src="images/image-product-3-thumbnail.jpg" alt=" sneakers sole">
+          <img class="thumbnail" data-photo="3" src="images/image-product-4-thumbnail.jpg" alt=" sneakers on a rock">
         </div>
       </div>
       <div class="product-info">
@@ -114,12 +111,14 @@
         </div>
         <div class="cart-actions">
           <div class="increment">
-            <button class="up-down minus"><img src="images/icon-minus.svg" /></button>
+            <button class="up-down minus"><img src="images/icon-minus.svg"
+                alt="decrease amount to add to cart" /></button>
             <p class="num-to-add"></p>
-            <button class="up-down plus"><img src="images/icon-plus.svg" /></button>
+            <button class="up-down plus"><img src="images/icon-plus.svg"
+                alt="increase amount to add to cart" /></button>
           </div>
           <button class="add-to-cart orange-button">
-            <img class="cart-icon-add" src="images/icon-cart.svg" />
+            <img class="cart-icon-add" src="images/icon-cart.svg" alt="add to cart" />
             <p>Add to cart</p>
           </button>
         </div>
@@ -142,24 +141,28 @@
       <img class="modal-main-photo " src="images/image-product-1.jpg" alt="main product photo">
       <div class="modal-arrows">
         <div class="left-modal-arrow arrow">
-          <img src="images/icon-previous.svg" />
+          <img src="images/icon-previous.svg" alt="previous image" />
         </div>
         <div class="right-modal-arrow arrow">
-          <img src="images/icon-next.svg" />
+          <img src="images/icon-next.svg" alt="next image" />
         </div>
       </div>
       <div class="modal-thumbnails">
         <div class="modal-thumb-container">
-          <img class="modal-thumbnail active-thumb" data-photo="0" src="images/image-product-1-thumbnail.jpg" alt="" />
+          <img class="modal-thumbnail active-thumb" data-photo="0" src="images/image-product-1-thumbnail.jpg"
+            alt="sneaker front view" />
         </div>
         <div class="modal-thumb-container">
-          <img class="modal-thumbnail" data-photo="1" src="images/image-product-2-thumbnail.jpg" alt="" />
+          <img class="modal-thumbnail" data-photo="1" src="images/image-product-2-thumbnail.jpg"
+            alt="sneaker back view" />
         </div>
         <div class="modal-thumb-container">
-          <img class="modal-thumbnail" data-photo="2" src="images/image-product-3-thumbnail.jpg" alt="" />
+          <img class="modal-thumbnail" data-photo="2" src="images/image-product-3-thumbnail.jpg"
+            alt="sneaker side view" />
         </div>
         <div class="modal-thumb-container">
-          <img class="modal-thumbnail" data-photo="3" src="images/image-product-4-thumbnail.jpg" alt="" />
+          <img class="modal-thumbnail" data-photo="3" src="images/image-product-4-thumbnail.jpg"
+            alt="sneaker on a rock" />
         </div>
       </div>
     </div>
