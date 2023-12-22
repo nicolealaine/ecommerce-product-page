@@ -4,10 +4,9 @@
 > Visit the live demo [here](https://nicolealaine.github.io/ecommerce-product-page/).
 
 ## Table of Contents
-- Features
-- Screenshots
-- Technologies Used
-- Installation
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies-used)
 
 ## Features
 - Responsive design
@@ -25,7 +24,3 @@
 - JavaScript
 - Vite
   
-## Installation
-1. Clone the repository: git clone https://github.com/nicolealaine/ecommerce-product-page.git
-2. Navigate to the project directory: cd ecommerce-product-page
-3. Open index.html in your preferred browser.
